@@ -1,0 +1,328 @@
+@charset "UTF-8";
+/* ==================RESET============== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+:root {
+  --hue: 196;
+  --bgcolor: #2d4a22;
+  --color-white: #f0f2f5;
+  --font-default: 'Poppins', sans-serif;
+  --color-h2: #363f5f;
+  --color-green: #49aa26;
+  --color-hover: #3dd705;
+  --color-blue-light-sky: hsla(var(--hue), 58%, 33%, 0.965);
+  --color-blue-dark-sky: hsl(var(--hue), 86%, 8%);
+  --color-red: #e92929;
+  --color-verde: hsl(var(--hue), 65%, 16%);
+  --color-azul-aço: hsl(var(--hue), 37%, 81%);
+  --font-number:'Rajdhani', sans-serif;
+
+}
+
+body {
+  background-image: linear-gradient(var(--color-verde),var(--color-azul-aço) ) ;
+  background-attachment: fixed;
+  font-family: var(--font-default);
+  font-size: 1.5rem;
+}
+/* tecninca usada para o leitores de buscas */
+.screen-reader-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  /* o min aceita dois valores e funciona assim:
+      ele vai pegar o menor valor entre os dois e coloracá na width.*/
+  /* Se abrir o nagevador em tela cheia os 800px será menor, se abrir em tele reduzida os 90vw será menor */
+  width: min(90vw, 800px);
+  margin: auto;
+}
+/* ==================== LINKS AND BUTTONS ==================== */
+a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+a:hover {
+  color: var(--color-hover);
+}
+button {
+  width: 100%;
+  height: 50px;
+
+  border: none;
+
+  color: white;
+  background: var(--color-green);
+  padding: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease-out;
+}
+
+button:hover {
+  background: var(--color-hover);
+}
+
+.button.new {
+  /*todo elemento que por padrão tenha um display block ele não poderá receber outras formas configurações. Para haver essas configurações é necessário transformar o seu display em inline-block */
+  display: inline-block;
+
+  margin-bottom: 1.28rem;
+}
+
+.button.cancel {
+  color: var(--color-red);
+  border: 2px var(--color-red) solid;
+  border-radius: 0.4rem;
+
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.button.cancel:hover {
+  opacity: 1;
+}
+
+/* ==================== TITLE ==================== */
+h2 {
+  margin-top: 5.12rem;
+  margin-bottom: 1.28rem;
+  color: var(--color-h2);
+  font-weight: normal;
+}
+
+/* ==================== HEADER ==================== */
+header {
+  background-image: linear-gradient(
+    var(--color-blue-light-sky),
+    var(--color-blue-dark-sky)
+  );
+  padding: 3.2rem 0rem 13rem;
+  text-align: center;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.356);
+}
+
+#logo {
+  color: #fff;
+  font-weight: 100;
+}
+
+/* ==================== BALANCE ==================== */
+
+#balance {
+  margin-top: -9.8rem;
+}
+
+#balance h2 {
+  color: #fff;
+  margin-top: 0;
+}
+/* ==================== CARDS ==================== */
+.card {
+  background: #fff;
+  padding: 2.4rem 3.2rem;
+  border-radius: 0.4rem;
+  margin-bottom: 2rem;
+  color: var(--color-h2);
+}
+
+.card h3 {
+  font-weight: normal;
+  font-size: 1.6rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card p {
+  font-size: 2.7rem;
+  line-height: 4.8rem;
+  font-family: var(--font-number);
+
+  margin-top: 1.6rem;
+}
+
+.card.total {
+  background-color: var(--color-verde); 
+  color: #fff;
+}
+/* ==================== TABLE ==================== */
+#transactions {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+#data-table {
+  width: 100%;
+  border-spacing: 0 0.8rem;
+  /* 1º param - border vertical 2º param - border horizontal*/
+  /* border spacing se refere as linhas de uma coluna borda horizontal e vertical. Ele aceita dois paramentros  */
+  color: #969cb3;
+}
+
+table th {
+  background: #fff;
+
+  text-align: left;
+  font-weight: normal;
+  padding: 1.6rem 3.2rem;
+}
+
+table thead tr th:first-child,
+table tbody tr td:first-child {
+  border-radius: 0.4rem 0 0 0.4rem;
+}
+
+table thead tr th:last-child,
+table tbody tr td:last-child {
+  border-radius: 0 0.4rem 0.4rem 0;
+}
+table tbody td {
+  background: #fff;
+
+  padding: 1.6rem 3.2rem;
+}
+
+table tbody tr {
+  opacity: 0.6;
+}
+table tbody tr:hover {
+  opacity: 1;
+}
+
+td.description {
+  color: var(--color-h2);
+}
+
+td.income {
+  color: #12a454;
+}
+
+td.expense {
+  color: var(--color-red);
+}
+/* ==================== MODAL ==================== */
+.modal-overlay-box-transperent {
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.705);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* quando coloca so o opacity 0 ele continua ocupando um espaço na tela, para resolver isso usamos um visibility hideen que esconde-o. */
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999;
+}
+
+.modal-overlay-box-transperent.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+.modal-box-white-center {
+  background: #f0f2f5;
+  padding: 3.2rem;
+
+  /* As duas formas chegam ao mesmo resultado*/
+
+  width:90%;
+  max-width: 500px;
+  /* width: min(90%, 500px); */
+  position:relative;
+  z-index: 1;
+}
+
+/* ================= FORM ================== */
+
+#form {
+  max-width: 500px;
+}
+#form h2 {
+  margin-top: 0;
+}
+
+input {
+  border: none;
+  border-radius: 0.2rem;
+
+  padding: 1.4rem;
+
+  width: 100%;
+}
+
+.input-group {
+  margin-top: 1.4rem;
+}
+
+.input-group .help{
+  opacity: 0.4;
+}
+
+.input-group.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group.actions .button,
+.input-group.actions button {
+  width: 48%;
+}
+/* ==================== FOOTER ==================== */
+
+footer {
+  text-align: center;
+  background: transperent;
+
+  /*   cima lateral baixo*/
+  padding: 6rem 0 3.2rem;
+  color: var(--color-h2);
+  opacity: 0.6;
+}
+
+/* ==================== RESPONSIVE ==================== */
+/* a partir o mínimo da largura de 800px será adicionado esta configuração abaixo */
+@media (min-width: 800px) {
+  html {
+    font-size: 56.25%;
+  }
+  #balance {
+    display: grid;
+
+    /* grid-template-columns: 1fr 1fr 1fr;  */
+    grid-template-columns: repeat(3, 1fr);
+    /* ambas tem o mesmo resultado */
+
+    gap: 3.1rem;
+  }
+}
